@@ -1,45 +1,21 @@
-let chatHistory = []; // Array to store chat history
-let prizeDoor;
-let selectedDoor;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monty Hall Problem</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Monty Hall Problem</h1>
+        <div id="chat">
+            <div class="chat-box" id="chatBox"></div>
+            <input type="text" id="userInput" placeholder="Type your response here..." onkeydown="if(event.keyCode==13) sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
-function setupGame() {
-    prizeDoor = Math.floor(Math.random() * 3) + 1; // Randomly assign prize to one of the doors
-    selectedDoor = null;
-    chatHistory.push({ sender: "bot", message: "Welcome to the Monty Hall Problem Bot! Let's play the game. You are presented with three doors, behind one of which is a prize. Choose a door by typing 1, 2, or 3." });
-    displayChat();
-}
-
-function processUserInput(userInput) {
-    if (!selectedDoor) {
-        selectedDoor = parseInt(userInput);
-        if (isNaN(selectedDoor) || selectedDoor < 1 || selectedDoor > 3) {
-            chatHistory.push({ sender: "bot", message: "Please enter a valid choice (1, 2, or 3)." });
-            displayChat();
-            return;
-        }
-        // Simulate revealing what's behind the selected door
-        const hasPrize = prizeDoor === selectedDoor;
-        const resultMessage = hasPrize ? "You won the prize!" : "Sorry, you didn't win the prize. Better luck next time!";
-        chatHistory.push({ sender: "bot", message: resultMessage });
-        displayChat();
-    } else {
-        chatHistory.push({ sender: "bot", message: "You've already selected a door. Please wait for the game to finish." });
-        displayChat();
-    }
-}
-
-function displayChat() {
-    const chatBox = document.getElementById('chatBox');
-    chatBox.innerHTML = '';
-    chatHistory.forEach(message => {
-        const chatMessage = document.createElement('div');
-        chatMessage.className = message.sender;
-        chatMessage.textContent = message.message;
-        chatBox.appendChild(chatMessage);
-    });
-    // Scroll to the bottom of the chat
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Initialize the chat when the page loads
-window.onload = setupGame;
+    <script src="script.js"></script>
+</body>
+</html>
