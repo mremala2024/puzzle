@@ -12,6 +12,7 @@ function setupGame() {
     for (let i = 1; i <= 3; i++) {
         document.getElementById('door' + i).src = "closed_door.jpg";
     }
+    console.log("Prize behind door: " + prizeDoor); // Debug
 }
 
 function selectDoor(doorNum) {
