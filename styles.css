@@ -1,13 +1,15 @@
 /* Existing CSS styles */
 
 #doors {
-    text-align: center; /* Center the doors */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin-top: 20px;
+    width: 100%; /* Ensure the container takes up the full width */
 }
 
 .door {
-    display: inline-block; /* Display doors side by side */
-    text-align: center; /* Center door content */
+    text-align: center;
 }
 
 .door-img {
@@ -19,4 +21,3 @@
 .door-label {
     margin-top: 5px;
 }
-
