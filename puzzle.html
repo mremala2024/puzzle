@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monty Hall Puzzle Bot</title>
+    <title>Monty Hall Problem</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Monty Hall Puzzle Bot</h1>
-        <div id="doors">
-            <div class="door" id="door1" onclick="selectDoor(1)">Door 1</div>
-            <div class="door" id="door2" onclick="selectDoor(2)">Door 2</div>
-            <div class="door" id="door3" onclick="selectDoor(3)">Door 3</div>
+        <h1>Monty Hall Problem</h1>
+        <div id="chat">
+            <div class="chat-box" id="chatBox"></div>
+            <input type="text" id="userInput" placeholder="Type your response here...">
+            <button onclick="sendMessage()">Send</button>
         </div>
-        <button onclick="restartGame()">Restart</button>
     </div>
 
     <script src="script.js"></script>
