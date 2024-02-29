@@ -1,0 +1,11 @@
+/* Existing CSS styles */
+
+.door-img {
+    width: 3cm;
+    height: 3cm;
+    cursor: pointer;
+}
+
+.door-label {
+    margin-top: 5px;
+}
