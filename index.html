@@ -9,23 +9,9 @@
 <body>
     <div class="container">
         <h1>Monty Hall Problem</h1>
-        <div id="doors">
-            <div class="door">
-                <img src="closed_door.jpg" alt="Door 1" class="door-img" id="door1" onclick="selectDoor(1)">
-                <div class="door-label">Door 1</div>
-            </div>
-            <div class="door">
-                <img src="closed_door.jpg" alt="Door 2" class="door-img" id="door2" onclick="selectDoor(2)">
-                <div class="door-label">Door 2</div>
-            </div>
-            <div class="door">
-                <img src="closed_door.jpg" alt="Door 3" class="door-img" id="door3" onclick="selectDoor(3)">
-                <div class="door-label">Door 3</div>
-            </div>
-        </div>
         <div id="chat">
             <div class="chat-box" id="chatBox"></div>
-            <input type="text" id="userInput" placeholder="Type your response here...">
+            <input type="text" id="userInput" placeholder="Type your response here..." onkeydown="if(event.keyCode==13) sendMessage()">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
