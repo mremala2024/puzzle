@@ -1,50 +1,45 @@
+let chatHistory = []; // Array to store chat history
 let prizeDoor;
 let selectedDoor;
-let doorStatus = []; // To keep track of door statuses (0 for closed, 1 for opened)
 
 function setupGame() {
-    // Randomly assign prize to one of the doors
-    prizeDoor = Math.floor(Math.random() * 3) + 1;
+    prizeDoor = Math.floor(Math.random() * 3) + 1; // Randomly assign prize to one of the doors
     selectedDoor = null;
-    doorStatus = [0, 0, 0]; // Initialize all doors as closed
-
-    // Reset door appearance
-    for (let i = 1; i <= 3; i++) {
-        document.getElementById('door' + i).src = "closed_door.jpg";
-    }
-    console.log("Prize behind door: " + prizeDoor); // Debug
+    chatHistory.push({ sender: "bot", message: "Welcome to the Monty Hall Problem Bot! Let's play the game. You are presented with three doors, behind one of which is a prize. Choose a door by typing 1, 2, or 3." });
+    displayChat();
 }
 
-function selectDoor(doorNum) {
-    if (!selectedDoor && doorStatus[doorNum - 1] === 0) { // Check if the door is not already opened
-        selectedDoor = doorNum;
-
-        // Simulate revealing what's behind the door
+function processUserInput(userInput) {
+    if (!selectedDoor) {
+        selectedDoor = parseInt(userInput);
+        if (isNaN(selectedDoor) || selectedDoor < 1 || selectedDoor > 3) {
+            chatHistory.push({ sender: "bot", message: "Please enter a valid choice (1, 2, or 3)." });
+            displayChat();
+            return;
+        }
+        // Simulate revealing what's behind the selected door
         const hasPrize = prizeDoor === selectedDoor;
-        const imageSrc = hasPrize ? "car.png" : "goat.png";
-        document.getElementById('door' + selectedDoor).src = imageSrc;
-
-        // Update door status
-        doorStatus[selectedDoor - 1] = 1;
-
-        // Offer switch or keep choice
-        setTimeout(() => {
-            let switchDoor = confirm('Do you want to switch doors?');
-            if (switchDoor) {
-                let remainingDoor = [1, 2, 3].filter(d => d !== selectedDoor && doorStatus[d - 1] === 0)[0];
-                selectedDoor = remainingDoor;
-                showResult();
-            } else {
-                showResult();
-            }
-        }, 500);
+        const resultMessage = hasPrize ? "You won the prize!" : "Sorry, you didn't win the prize. Better luck next time!";
+        chatHistory.push({ sender: "bot", message: resultMessage });
+        displayChat();
+    } else {
+        chatHistory.push({ sender: "bot", message: "You've already selected a door. Please wait for the game to finish." });
+        displayChat();
     }
 }
 
-function showResult() {
-    const resultMessage = selectedDoor === prizeDoor ? "Congratulations! You won the prize!" : "Sorry, you didn't win the prize. Better luck next time!";
-    alert(resultMessage);
+function displayChat() {
+    const chatBox = document.getElementById('chatBox');
+    chatBox.innerHTML = '';
+    chatHistory.forEach(message => {
+        const chatMessage = document.createElement('div');
+        chatMessage.className = message.sender;
+        chatMessage.textContent = message.message;
+        chatBox.appendChild(chatMessage);
+    });
+    // Scroll to the bottom of the chat
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Initialize the game when the page loads
+// Initialize the chat when the page loads
 window.onload = setupGame;
