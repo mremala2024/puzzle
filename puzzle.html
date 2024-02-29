@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Bond Mystery Puzzle Bot</title>
+    <title>Monty Hall Puzzle Bot</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>James Bond Mystery Puzzle Bot</h1>
-        <div id="puzzle"></div>
-        <button id="solveBtn">Solve</button>
+        <h1>Monty Hall Puzzle Bot</h1>
+        <div id="doors">
+            <div class="door" id="door1" onclick="selectDoor(1)">Door 1</div>
+            <div class="door" id="door2" onclick="selectDoor(2)">Door 2</div>
+            <div class="door" id="door3" onclick="selectDoor(3)">Door 3</div>
+        </div>
+        <button onclick="restartGame()">Restart</button>
     </div>
 
     <script src="script.js"></script>
