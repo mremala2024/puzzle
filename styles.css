@@ -1,11 +1,23 @@
 /* Existing CSS styles */
 
+#doors {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.door {
+    text-align: center;
+    margin: 0 10px;
+}
+
 .door-img {
-    width: 3cm;
-    height: 3cm;
+    width: 100px;
+    height: auto;
     cursor: pointer;
 }
 
 .door-label {
     margin-top: 5px;
 }
+
