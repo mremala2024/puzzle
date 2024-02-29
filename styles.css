@@ -2,22 +2,21 @@
 
 #doors {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .door {
     text-align: center;
-    margin: 0 10px;
 }
 
 .door-img {
-    width: 100px;
-    height: auto;
+    width: 3cm;
+    height: 3cm;
     cursor: pointer;
 }
 
 .door-label {
     margin-top: 5px;
 }
-
