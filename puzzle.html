@@ -10,9 +10,18 @@
     <div class="container">
         <h1>Monty Hall Problem</h1>
         <div id="doors">
-            <img src="closed_door.jpg" alt="Door 1" class="door" id="door1" onclick="selectDoor(1)">
-            <img src="closed_door.jpg" alt="Door 2" class="door" id="door2" onclick="selectDoor(2)">
-            <img src="closed_door.jpg" alt="Door 3" class="door" id="door3" onclick="selectDoor(3)">
+            <div class="door">
+                <img src="door_closed.png" alt="Door 1" class="door-img" id="door1" onclick="selectDoor(1)">
+                <div class="door-label">Door 1</div>
+            </div>
+            <div class="door">
+                <img src="door_closed.png" alt="Door 2" class="door-img" id="door2" onclick="selectDoor(2)">
+                <div class="door-label">Door 2</div>
+            </div>
+            <div class="door">
+                <img src="door_closed.png" alt="Door 3" class="door-img" id="door3" onclick="selectDoor(3)">
+                <div class="door-label">Door 3</div>
+            </div>
         </div>
         <div id="chat">
             <div class="chat-box" id="chatBox"></div>
